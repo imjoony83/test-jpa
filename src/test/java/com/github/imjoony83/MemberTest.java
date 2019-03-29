@@ -4,21 +4,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
 import java.util.Date;
+import java.util.List;
 
-import org.assertj.core.api.Assertions;
-import org.junit.FixMethodOrder;
+import org.hibernate.criterion.Example;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.github.imjoony83.entity.Member;
 import com.github.imjoony83.repository.MemberRepository;
-
-import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -48,6 +45,9 @@ public class MemberTest {
 	public void _2멤버삭제() {
 		memberRepository.delete(Member.builder().id("id_a").build());
 		assertThat(memberRepository.findAll().size()).isEqualTo(2);
+		
+//		memberRepository.findAll(member);
+		
 	}
 	
 }
